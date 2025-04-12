@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+    <t t-name="barcode_terminal.ListView.Buttons" t-inherit="web.ListView.Buttons">
+<!--        <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="after">-->
+                    <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="replace">
+            <button type="button" class="btn btn-primary upload_action" style="margin-left: 10px;"  t-on-click="UploadZip">
+                Upload
+            </button>
+        </xpath>
+
+    </t>
+
+    <t t-name="barcode_terminal.implementation_field_mapping.ListView.Buttons" t-inherit="web.ListView.Buttons">
+        <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="replace">
+            <!--        <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="replace">-->
+            <button title="Hello World!" type="button" class="btn btn-primary wizard_action" style="margin-left: 10px;"  t-on-click="OpenTemplateWizard">
+                Open Wizard
+            </button>
+        </xpath>
+
+    </t>
+
+</templates>
