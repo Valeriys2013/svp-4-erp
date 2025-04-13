@@ -1,0 +1,294 @@
+
+
+<odoo>
+    <data>
+        <!-- base list view definition -->
+
+        <record model="ir.ui.view" id="barcode_terminal.list0">
+            <field name="name">barcode terminal list</field>
+            <field name="model">barcode_terminal.barcode_collection</field>
+            <field name="arch" type="xml">
+                <tree string="Barcode Collections" decoration-info ="state in ('draft','found_nothing')"
+                      decoration-primary = "state in ('part_recognized','all_recognized')">
+                    <field name="name"/>
+                    <field name="create_date"/>
+                    <field name="state"/>
+                    <field name="user_id"/>
+                    <!--  <field name="target_id"/> -->
+
+                </tree>
+            </field>
+        </record>
+        <!-- extended list view definition -->
+
+        <record model="ir.ui.view" id="barcode_terminal.list">
+            <field name="name">barcode terminal list</field>
+            <field name="model">barcode_terminal.barcode_collection</field>
+            <field name="inherit_id" ref="barcode_terminal.list0"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="js_class">list_plus_js_actions</attribute>
+                    <attribute name="create">false</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!--  form view -->
+        <record id="view_form_collection0" model="ir.ui.view">
+            <field name="name">Barcode terminal Collection Form</field>
+            <field name="model">barcode_terminal.barcode_collection</field>
+            <field name="arch" type="xml">
+
+                <form string="Barcode Collection">
+                    <header>
+                        <!--                <field name="authorized_transaction_ids" invisible="1"/>-->
+                        <button name="find_barcoded_products" type="object" data-hotkey="shift+f"
+                                string="Recognize products" help="Find products for barcodes" invisible = "state !='draft'" class="oe_highlight"/>
+                        <button name="find_barcoded_products" type="object" data-hotkey="shift+f"
+                                string="Recognize products" help="Find products for barcodes" invisible = "state not in 'found_nothing,part_recognized,all_recognized,implemented'" />
+                        <button name="generate_new_products" type="object" string="Generate new products" data-hotkey="shift+g"
+                                help="Create products that is not found for barcodes" invisible = "state not in 'found_nothing,part_recognized'" class="oe_highlight"/>
+                        <button name="generate_new_products" type="object" string="Generate new products" data-hotkey="shift+g"
+                                help="Create products that is not found for barcodes" invisible = "state not in ['all_recognized','implemented']"/>
+
+                        <!--                             <button name="try_something" type="object"-->
+                        <!--                                string="Try" />-->
+
+                        <field name="state" widget="statusbar" statusbar_visible="part_recognized,all_recognized,implemented"/>
+                    </header>
+
+                    <!--                    <sheet>-->
+                    <notebook class="oe_form_notebook">
+                        <page name="collection" string="Collection">
+
+                            <group>
+                                <group>
+                                    <field name="name" />
+                                    <!--                                    <field name="start_timestamp" />-->
+                                    <field name="active" />
+                                </group>
+                                <group>
+                                    <field name="ext_id" />
+                                    <field name="create_date" />
+                                    <!--                                    <field name="id" />-->
+                                </group>
+                            </group>
+
+                            <field name="line_ids" mode="tree,form">
+                                <!--                                <tree editable="bottom">-->
+                                <tree >
+                                    <field name="barcode" style="width:100px;"/>
+                                    <field name="barcode_name" />
+                                    <field name="barcode_comment" optional="hide"/>
+                                    <field name="quantity" class="text-center"/>
+                                    <field name="product"
+                                           style="width: 150px;"
+                                           context="{'tree_view_ref':'barcode_terminal.product_product_tree_for_barcode'}"/>
+                                    <field name="image_128" widget="image" optional="show" readonly="1" options="{'preview_image': 'image_128', 'size': [64, 64], 'zoom': true}"/>
+                                    <!--                                        <field name="image_1920" widget="image" readonly="1" options="{'preview_image': 'image_128'}"/>-->
+                                    <!--                                        <field name="image" widget="image" readonly="0" options="{'size': [128, 128]}"/>-->
+                                    <!--                                        <field name="image" widget="image" readonly="0" options="{'size': [128, 128]}"/>-->
+                                    <field name="uom_id"/>
+                                    <field name="price_unit"/>
+                                </tree>
+
+                                <form>
+                                    <header>
+                                        <button name="replace_existing_image" type="object" data-hotkey="shift+g"
+                                                string="replace existing image" help="Replace existing image" class="oe_highlight"/>
+                                        <button name="assign_barcode" type="object" data-hotkey="shift+b"
+                                                string="assign barcode" help="Assign barcode" class="oe_highlight"/>
+                                        <button name="update_all" type="object" data-hotkey="shift+b"
+                                                string="update all data" help="Assign barcode" class="oe_highlight"/>
+                                    </header>
+                                    <group>
+                                        <group>
+                                            <!--                    <field name="product" />-->
+                                            <field name="product"  context="{'tree_view_ref':'barcode_terminal.product_product_tree_for_barcode'}"/>
+                                            <group>
+                                                <field name="price_unit"/>
+                                            </group>
+                                            <group>
+                                                <field name="quantity" />
+                                            </group>
+                                            <group>
+                                                <field name="uom_id" />
+                                            </group>
+                                            <field name="product_image" string="existing product image" widget="image" readonly="1" options="{'size': [256, 256], 'zoom': true}"/>
+                                        </group>
+                                        <group>
+                                            <field name="barcode" />
+                                            <field name="barcode_name" />
+                                            <field name="barcode_comment"/>
+                                            <field name="image_1920" widget="image" readonly="1" options="{'preview_image': 'image_1024', 'size': [256, 256], 'zoom': true}"/>
+                                        </group>
+
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page name="Implementation" class="o_implementation_page" id="implementation_page">
+                            <field name="implementation_ids" mode="tree">
+                                <tree editable="bottom">
+                                    <!--                                    <field name="source_collection_id"/>-->
+                                    <!--                                    <field name="target_type_id" string="Implementation template"/>-->
+                                    <!--                                                                        <button name="generate_target_doc" type="object" string="GENERATE" class="btn-success" icon="fa-arrow-circle-o-right"-->
+                                    <!--                                                                         style="visibility:hidden; width:20px" attrs="{'invisible': [('target_type_id', '=', False)]}"/>-->
+                                    <!--                    <field name="document_model_id"/>-->
+                                    <field name="target_document_model_name" string="Target document model" readonly="1"/>
+                                    <field name="result_doc_name" string="Result document" readonly="1" required="0" />
+                                    <!--                                    <field name="document_reference" string="Target document" readonly="1" required="0" options="{'no_open': False}"/>-->
+                                    <button type="object" name="open_target_reference" string="Open" icon="fa-arrow-right"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name="other_info" string="Other Information">
+                            <group>
+                                <field name="collection_comment"/>
+                            </group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                    <!--                    </sheet>-->
+                </form>
+            </field>
+        </record>
+
+        <!--  form view -->
+
+        <record id="view_form_collection" model="ir.ui.view">
+            <field name="name">Barcode terminal Collection Form</field>
+            <field name="model">barcode_terminal.barcode_collection</field>
+            <field name="inherit_id" ref="view_form_collection0"/>
+            <!--            <field name="inherit_id" ref="barcode_terminal.view_form_collection0"/>-->
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="js_class">barcode_collection_form</attribute>
+                    <attribute name="create">false</attribute>
+                </xpath>
+
+                <xpath expr="//header" position="inside">
+                    <!--                    <div name="button_box" class="oe_button_box,oe_bottom">-->
+                    <button class="oe_stat_button"  help="Update Product Standard Prices"
+                            type="object"
+                            icon="fa-money"
+                            name="update_product_standard_prices"
+                            confirm="This is needed only to apply prices from this collection to new purchase order (where value 0 - will be skipped)). Is this what you want?"
+                            data-hotkey="w"
+                            invisible = "state not in 'part_recognized,all_recognized,implemented'">
+                    </button>
+                    <!--                    </div>-->
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="barcode_terminal.action_window_collections">
+            <field name="name">Barcode Collections</field>
+            <field name="res_model">barcode_terminal.barcode_collection</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="barcode_terminal.action_window_implementation_tunings">
+            <field name="name">Implementation templates</field>
+            <field name="domain">['|', ('allow_forced_creation', 'like', "1"), ('forced_creation', '=', False)]</field>
+            <field name="res_model">barcode_terminal.implementation_field_mapping</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+
+        <record model="ir.actions.server" id="barcode_terminal.action_server">
+            <field name="name">Update product standard prices</field>
+            <field name="model_id" ref="model_barcode_terminal_barcode_collection"/>
+
+            <field name="binding_model_id" ref="model_barcode_terminal_barcode_collection" />
+            <field name="binding_view_types">form</field>
+
+            <field name="state">code</field>
+            <field name="code">
+                action = model.update_product_standard_prices()
+                <!--                action = {-->
+                <!--                "type": "ir.actions.act_window",-->
+                <!--                "view_mode": "tree,form",-->
+                <!--                "res_model": model._name,-->
+                <!--                }-->
+            </field>
+        </record>
+
+        <record model="ir.actions.server" id="barcode_terminal.find_barcodes">
+            <field name="name">Find barcodes</field>
+            <field name="model_id" ref="model_barcode_terminal_barcode_collection"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.test_function()
+                <!--                action = model.find_barcoded_products()-->
+            </field>
+        </record>
+
+        <record id="res_config_settings_menu_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form_barcode_terminal"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'barcode_terminal'}</field>
+        </record>
+
+        <!--        <record id="load_js_function" model="ir.actions.client">-->
+        <!--            <field name="name">Load JS Function</field>-->
+        <!--            <field name="tag">js_function</field>-->
+        <!--        </record>-->
+
+        <!-- Top menu item -->
+        <menuitem name="Barcode terminal" id="barcode_terminal.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Collections" id="barcode_terminal.collections"
+                  sequence="10" parent="barcode_terminal.menu_root"/>
+        <menuitem name="Implementation" id="barcode_terminal.implementation"
+                  sequence="20" parent="barcode_terminal.menu_root"/>
+        <menuitem name="Configuration" id="barcode_terminal.configuration"
+                  sequence="30" parent="barcode_terminal.menu_root"/>
+
+
+        <!-- actions -->
+
+        <menuitem name="Collections" id="barcode_terminal.collections_list" parent="barcode_terminal.collections"
+                  action="barcode_terminal.action_window_collections"/>
+        <menuitem name="Implementations" id="implementations_list_menu" parent="barcode_terminal.implementation"
+                  action="barcode_terminal.implementation_act_window"/>
+        <menuitem name="Implementation templates" id="barcode_terminal.tunings" parent="barcode_terminal.configuration"
+                  action="barcode_terminal.action_window_implementation_tunings"/>
+        <menuitem name="Settings" id="barcode_terminal.settings" parent="barcode_terminal.configuration"
+                  action="barcode_terminal.res_config_settings_menu_action"/>
+
+
+
+        <!--    <menuitem name="Server to list" id="barcode_terminal" parent="barcode_terminal.menu_2"
+                     action="barcode_terminal.action_server"/> -->
+        <!--        <menuitem name="Find barcodes" id="barcode_terminal.menu_find_barcodes" parent="barcode_terminal.implementation"-->
+        <!--                  action="barcode_terminal.find_barcodes"/>-->
+
+
+        <!--        <menuitem-->
+        <!--                id="menu_reporting_config"-->
+        <!--                parent="barcode_terminal.collections"-->
+        <!--                name="try load import"-->
+        <!--                action="load_js_function"-->
+        <!--        />-->
+
+    </data>
+</odoo>

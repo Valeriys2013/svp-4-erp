@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+    <t t-name="barcode_collection.FormView.Buttons" t-inherit="web.FormView" owl="1">
+
+        <!--        <xpath expr="//t[@t-set-slot='layout-buttons']" position="inside">-->
+        <xpath expr="//t[@t-set-slot='layout-actions']" position="inside">
+<!--            <t t-if="props.state != 'draft'">-->
+                <button type="button" class="btn btn-primary btn-implement"
+                        name = "implement_btn"
+                        t-on-click="() => this.onImplementBtnClick()">
+                    <span>Implement</span>
+                </button>
+<!--            </t>-->
+        </xpath>
+    </t>
+
+</templates>

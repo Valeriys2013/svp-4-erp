@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ImplementWizard_form_view" model="ir.ui.view">
+            <field name="name">barcode_terminal.implementation_wizard.form</field>
+            <field name="model">barcode_terminal.implementation_wizard</field>
+            <field name="arch" type="xml">
+                <!--                <xpath expr="//form" position="attributes">-->
+                <!--                    <attribute name="js_class">extended_action_form</attribute>-->
+                <!--                </xpath>-->
+<!--                <xpath expr="//form" position="attributes">-->
+<!--                    <attribute name="js_class">sale_order_blog</attribute>-->
+<!--                </xpath>-->
+                <form string="Create new implementation">
+                    <sheet>
+                        <!--                        <div class="oe_title">-->
+                        <!--                            <label for="example_title"/>-->
+                        <!--                            <h1>-->
+                        <!--                                <field name="example_title" placeholder="Title"/>-->
+                        <!--                            </h1>-->
+                        <!--                        </div>-->
+                        <group>
+                            <group>
+                                <field name="source_collection_id"/>
+                                <field name="target_document_model"/>
+                            </group>
+                            <group>
+                                <field name="target_type_id"/>
+                                <field name="target_doc_line_model"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button type="object"
+                                    name="generate_implementation"
+                                    invisible = "target_type_id == False or source_collection_id == False"
+                                    string="Generate implementation" />
+
+<!--                            <button type="action"-->
+<!--                                    name="MoreOptions"-->
+<!--                                    string="Something from JS" />-->
+
+
+                            <button special="cancel"
+                                    string="Cancel"
+                                    class="btn-secondary" />
+                        </footer>
+
+
+<!--                        <xpath expr="//footer" position="inside">-->
+<!--                            &lt;!&ndash;                    <xpath expr="//field[@name='target_doc_line_model']" position="after">&ndash;&gt;-->
+<!--                            <a href="#" t-on-click="MoreOptions">-->
+<!--                                <i class="fa fa-ellipsis-v"-->
+<!--                                   style="font-size:24px"/>-->
+<!--                            </a>-->
+<!--                        </xpath>-->
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <!--        <record id="ImplementWizard_form_view1" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation_wizard.form</field>-->
+        <!--            <field name="model">barcode_terminal.implementation_wizard</field>-->
+        <!--            <field name="inherit_id" ref="ImplementWizard_form_view"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                &lt;!&ndash;                <xpath expr="//form" position="attributes">&ndash;&gt;-->
+        <!--                &lt;!&ndash;                    <attribute name="js_class">extended_action_form</attribute>&ndash;&gt;-->
+        <!--                &lt;!&ndash;                </xpath>&ndash;&gt;-->
+        <!--                <xpath expr="//form" position="attributes">-->
+        <!--                    <attribute name="js_class">sale_order_blog</attribute>-->
+        <!--                </xpath>-->
+        <!--                <xpath expr="//footer" position="inside">-->
+        <!--&lt;!&ndash;                    <xpath expr="//field[@name='target_doc_line_model']" position="after">&ndash;&gt;-->
+        <!--                    <a href="#" t-on-click="MoreOptions">-->
+        <!--                        <i class="fa fa-ellipsis-v"-->
+        <!--                           style="font-size:24px"/>-->
+        <!--                    </a>-->
+        <!--                </xpath>-->
+        <!--&lt;!&ndash;                <div t-on-click="MoreOptions"> .button. </div>&ndash;&gt;-->
+
+        <!--            </field>-->
+        <!--        </record>-->
+
+
+
+
+
+
+
+        <!--        <record id="ModelName_tree_view" model="ir.ui.view">-->
+        <!--            <field name="name">ProjectName.ModelName.tree</field>-->
+        <!--            <field name="model">ProjectName.ModelName</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree string="ModelTitle">-->
+        <!--                    <field name="create_date"/>-->
+        <!--                    <field name="example_field"/>-->
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="ModelName_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">ProjectName.ModelName.search</field>-->
+        <!--            <field name="model">ProjectName.ModelName</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="implement_wizard_act_window" model="ir.actions.act_window">
+            <field name="name">New implementation</field>
+            <!--            <field name="type">ir.actions.act_window</field>-->
+            <field name="res_model">barcode_terminal.implementation_wizard</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">form</field>
+            <!--            <field name="help" type="html">-->
+            <!--                <p class="oe_view_nocontent_create">-->
+            <!--                    There is no examples click here to add new ModelTitle.-->
+            <!--                </p>-->
+            <!--            </field>-->
+        </record>
+
+        <!--        <menuitem name="New implementation" id="wizard_act_window_menu" parent="your_root_menu" action="implement_wizard_act_window"/>-->
+
+    </data>
+</odoo>

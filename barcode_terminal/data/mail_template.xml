@@ -1,0 +1,54 @@
+<odoo>
+<!--    <record id="mail_alias_collections" model="mail.alias">-->
+<!--        <field name="alias_name">valeriys</field>-->
+<!--        <field name="alias_model_id" ref="model_barcode_terminal_barcode_collection"/>-->
+<!--        <field name="alias_contact">everyone</field>-->
+<!--    </record>-->
+
+    <record id="mail_alias_collections" model="barcode_terminal.collection_mail_alias">
+        <field name="name">Default</field>
+        <field name="alias_name">barcode-terminal</field>
+<!--        <field name="alias_name">valeriys</field>-->
+        <field name="subject_prefix">barcodecollector data</field>
+<!--        <field name="attachment_prefix">products17_</field>-->
+        <field name="alias_model_id" ref="model_barcode_terminal_barcode_collection"/>
+        <field name="alias_contact">everyone</field>
+        <field name="alias_defaults">{'subject_prefix':'barcodecollector data', 'attachment_prefix':'products17_'}</field>
+    </record>
+
+<!--    <record id="implementation_template_purchase_order" model="barcode_terminal.implementation_field_mapping">-->
+<!--        <field name="name">Purchase Order (Order Lines)</field>-->
+<!--        <field name="target_document_model_id" search="[-->
+<!--        ('model','=','purchase.order')-->
+<!--        ]" />-->
+<!--        <field name="document_lines_field_id" search="[-->
+<!--        ('name','=','order_line')-->
+<!--        ]" />-->
+
+<!--        <field name="doc_attrib_ids" eval="[-->
+<!--     Command.create({-->
+<!--            'external_field': 'name',-->
+<!--           'external_field_type': 'char',-->
+<!--            'internal_field': 'name',-->
+<!--        }),-->
+
+<!--    ]"/>-->
+<!--    </record>-->
+
+    <function model="barcode_terminal.implementation_template_wizard" name="create_implementation_template"
+            eval="['purchase.order', 'order_line', 'Purchase Order [Order Lines]']"/>
+
+    <function model="barcode_terminal.implementation_template_wizard" name="create_implementation_template"
+            eval="['product.pricelist', 'item_ids', 'Pricelist [Pricelist Rules]']"/>
+
+    <function model="barcode_terminal.implementation_template_wizard" name="create_implementation_template"
+            eval="['stock.picking', 'move_ids_without_package', 'Internal Transfer [Stock move]']"/>
+
+    <function model="barcode_terminal.implementation_template_wizard" name="create_implementation_template"
+            eval="['sale.order', 'order_line', 'Sales Order [Order Lines]']"/>
+
+    <function model="barcode_terminal.implementation_template_wizard" name="create_implementation_template"
+            eval="['sale.order.template', 'sale_order_template_line_ids', 'Quotation Template [Lines]']"/>
+
+
+</odoo>

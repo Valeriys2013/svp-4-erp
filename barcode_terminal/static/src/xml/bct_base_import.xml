@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+        <template>
+            <t t-name="BCT_ImportView" t-extend="ImportView">
+                <t t-jquery=".o_view_nocontent_smiling_face" t-operation="inner">
+                    Upload an Excel or CSV file to import (or Zip :))))))))
+                </t>
+            </t>
+        </template>
