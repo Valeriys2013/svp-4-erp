@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="collection_mail_alias_form_view" model="ir.ui.view">
+            <field name="name">barcode_terminal.collection_mail_alias.form</field>
+            <field name="model">barcode_terminal.collection_mail_alias</field>
+            <field name="arch" type="xml">
+                <form string="Barcode collection EMail alias">
+
+                    <group>
+                        <group>
+                            <!--                            <div class="oe_title">-->
+                            <!--                                <label for="name"/>-->
+                            <!--                                <h4>-->
+                            <field name="name" placeholder="Title"/>
+                            <!--                                </h4>-->
+                            <!--                            </div>-->
+                            <field name="create_date" />
+                        </group>
+
+                        <group>
+                            <a href='https://play.google.com/store/apps/details?id=com.svitlytskyi.barcodecollector.pro.release&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img style="margin-top:-22px;height:160px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+                            <img class="img" src="/barcode_terminal/static/src/img/qr_google_play_bcc.png"/>
+                            <!--                            <img class="img" src="/barcode_terminal/static/src/img/qr_google_play_bcc.png" style="height:60%;width:60%;" />-->
+                        </group>
+
+                    </group>
+
+
+
+                    <div class="alert alert-warning" role="alert" name="test_warning" invisible="alias_domain">
+                        EMail alias domain should be set for your company by the person with correspondent privileges. For this go to "Settings"->"General settings"->"Discuss"->
+                        "Alias Domain". See Odoo documentation for more info.
+                    </div>
+                    <div class="alert alert-info" role="alert" name="test_warning">
+                        When alias is set, it automatically imports data sent from Android application "SVP Barcode Collector"
+                        to Email using following address
+                    </div>
+
+                    <sheet>
+
+                        <group>
+                            <group name="group_alias">
+                                <label for="alias_name" string="Email Alias"/>
+                                <div name="alias_def">
+                                    <!-- display a link while in view mode and a configurable field
+                                    while in edit mode -->
+                                    <field name="alias_id" class="oe_read_only oe_inline"
+                                           string="Email Alias" required="0"/>
+                                    <div class="oe_edit_only oe_inline" name="edit_alias"
+                                         style="display: inline;" >
+                                        <field name="alias_name" class="oe_inline text-end" required="1"/>
+                                        @
+                                        <field name="alias_domain" class="oe_inline" readonly="1"/>
+                                    </div>
+                                </div>
+                                <field name="alias_contact" class="oe_inline"
+                                       string="Accept Emails From"/>
+                            </group>
+
+                            <group string="Filters for EMails (optional)">
+                                <!--                                <field name="alias_defaults" class="oe_inline" readonly="0"/>-->
+                                <field name="subject_prefix"/>
+                                <field name="attachment_prefix"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="collection_mail_alias_tree_view" model="ir.ui.view">
+            <field name="name">barcode_terminal.collection_mail_alias.list</field>
+            <field name="model">barcode_terminal.collection_mail_alias</field>
+            <field name="arch" type="xml">
+                <list string="Barcode collection EMail aliases">
+                    <field name="name"/>
+                    <field name="create_date"/>
+                    <field name="subject_prefix"/>
+                    <field name="attachment_prefix"/>
+                </list>
+            </field>
+        </record>
+
+                <record id="collection_mail_alias_search_view" model="ir.ui.view">
+                    <field name="name">barcode_terminal.collection_mail_alias.search</field>
+                    <field name="model">barcode_terminal.collection_mail_alias</field>
+                    <field name="arch" type="xml">
+                        <search string="Barcode collection EMail alias">
+                            <group expand="1" string="Group By">
+                                <filter string="Attachment prefix Field" name="attachment_prefix" domain="[]" context="{'group_by':'attachment_prefix'}"/>
+                            </group>
+                        </search>
+                    </field>
+                </record>
+
+        <record id="collection_mail_alias_act_window" model="ir.actions.act_window">
+            <field name="name">Barcode collection EMail aliases</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">barcode_terminal.collection_mail_alias</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">list,form</field>
+            <!--            <field name="help" type="html">-->
+            <!--                <p class="oe_view_nocontent_create">-->
+            <!--                    There is no examples click here to add new Barcode collection EMail alias.-->
+            <!--                </p>-->
+            <!--            </field>-->
+        </record>
+
+        <menuitem name="Barcode collection EMail alias" id="collection_mail_alias_menu" parent="barcode_terminal.configuration" action="collection_mail_alias_act_window"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="implementation_form_view" model="ir.ui.view">
+            <field name="name">barcode_terminal.implementation.form</field>
+            <field name="model">barcode_terminal.implementation</field>
+            <field name="arch" type="xml">
+                <form string="Implementation">
+                    <header>
+                        <!--                <field name="authorized_transaction_ids" invisible="1"/>-->
+                        <!--                        attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>-->
+                        <!--                <button name="payment_action_void" type="object"-->
+                        <!--                        string="Void Transaction" data-hotkey="shift+v"-->
+                        <!--                        confirm="Are you sure you want to void the authorized transaction? This action can't be undone."-->
+                        <!--                        attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>-->
+                        <!--                <button id="create_invoice" name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"-->
+                        <!--                    type="action" class="btn-primary" data-hotkey="q"-->
+                        <!--                    attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>-->
+                        <!--                <button id="create_invoice_percentage" name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"-->
+                        <!--                    type="action" context="{'default_advance_payment_method': 'percentage'}" data-hotkey="q"-->
+                        <!--                    attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>-->
+                        <!--                <button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary" data-hotkey="g" context="{'validate_analytic': True}"/>-->
+                        <!--                <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice"-->
+                        <!--                    groups="sale.group_proforma_sales" class="btn-primary"-->
+                        <!--                    attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True, 'validate_analytic': True}"/>-->
+                        <!--                <button name="action_confirm" id="action_confirm" data-hotkey="v"-->
+                        <!--                    string="Confirm" class="btn-primary" type="object" context="{'validate_analytic': True}"-->
+                        <!--                    attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>-->
+                        <!--                <button name="action_confirm" data-hotkey="v"-->
+                        <!--                    string="Confirm" type="object" context="{'validate_analytic': True}"-->
+                        <!--                    attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>-->
+                        <!--                <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True, 'validate_analytic': True}"/>-->
+                        <!--                <button name="action_quotation_send" string="Send by Email" type="object" states="sent,sale" data-hotkey="g" context="{'validate_analytic': True}"/>-->
+                        <!--                <button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','sale']), ('id', '=', False)]}" data-hotkey="z"/>-->
+                        <!--                <button name="action_draft" states="cancel" type="object" string="Set to Quotation" data-hotkey="w"/>-->
+                        <button name="print_document_model_id" type="object" string="print_document_model_id" data-hotkey="w"/>
+                        <!--                <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>-->
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="source_collection_id"/>
+                            <h1>
+                                <field name="source_collection_id" placeholder="Title"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="create_date"/>
+                                <field name="target_type_id"/>
+                            </group>
+                            <group>
+                                <field name="target_document_model"/>
+                                <field name="document_reference" readonly="1" height="20"  width="100"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="implementation_tree_view" model="ir.ui.view">
+            <field name="name">barcode_terminal.implementation.list</field>
+            <field name="model">barcode_terminal.implementation</field>
+            <field name="arch" type="xml">
+                <list string="Implementation" editable="bottom" create = "False">
+                    <field name="source_collection_id"/>
+                    <field name="target_type_id"/>
+                    <!--                    <field name="document_model_id"/>-->
+                    <field name="result_doc_name" readonly="1" required="False"/>
+                </list>
+            </field>
+        </record>
+
+        <!--        <record id="implementation_calendar_view" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation.calendar</field>-->
+        <!--            <field name="model">barcode_terminal.implementation</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <calendar string="Translation" date_start="example_date_field" color="example_boolean_field">-->
+        <!--                    <field name="example_field"/>-->
+        <!--                    <field name="example_field" widget="monetary"/>-->
+        <!--                </calendar>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="implementation_graph_view" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation.graph</field>-->
+        <!--            <field name="model">barcode_terminal.implementation</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <graph string="Translation">-->
+        <!--                    <field name="example_field"/>-->
+        <!--                    <field name="example_field" type="measure"/>-->
+        <!--                </graph>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="implementation_pivot_view" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation.pivot</field>-->
+        <!--            <field name="model">barcode_terminal.implementation</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <pivot string="Translation">-->
+        <!--                    <field name="example_field" type="row"/>-->
+        <!--                    <field name="example_field" type="measure"/>-->
+        <!--                </pivot>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="implementation_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation.search</field>-->
+        <!--            <field name="model">barcode_terminal.implementation</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="Translation">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Target document model" name="target_document_model" domain="[]"-->
+        <!--                                context="{'group_by':'target_document_model'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record id="implementation_kanban_view" model="ir.ui.view">-->
+        <!--            <field name="name">barcode_terminal.implementation.kanban</field>-->
+        <!--            <field name="model">barcode_terminal.implementation</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <kanban>-->
+        <!--                    <field name="id"/>-->
+        <!--                    <field name="example_field"/>-->
+        <!--                    <templates>-->
+        <!--                        <t t-name="kanban-box">-->
+        <!--                            <div class="oe_kanban_global_click o_res_partner_kanban">-->
+        <!--                                <div class="oe_kanban_details">-->
+        <!--                                    <strong class="o_kanban_record_title oe_partner_heading">-->
+        <!--                                        <field name="example_field"/>-->
+        <!--                                    </strong>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </t>-->
+        <!--                    </templates>-->
+        <!--                </kanban>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="barcode_terminal.implementation_act_window" model="ir.actions.act_window">
+            <field name="name">Implementation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">barcode_terminal.implementation</field>
+            <field name="view_mode">list</field>
+            <!--            <field name="context">{"search_default_example_field":1}</field>-->
+<!--            <field name="help" type="html">-->
+<!--                <p class="oe_view_nocontent_create">-->
+<!--                    There is no examples click here to add new Translation!!!!!!!!!!-->
+<!--                </p>-->
+<!--            </field>-->
+        </record>
+
+        <!--        <menuitem name="Translation" id="implementation_menu" parent="your_root_menu" action="implementation_act_window"/>-->
+
+    </data>
+</odoo>

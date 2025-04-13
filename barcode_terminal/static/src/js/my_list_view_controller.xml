@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+    <t t-name="barcode_terminal.ListView.Buttons" t-inherit="web.ListView.Buttons">
+        <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
+            <button type="button" class="btn btn-primary" style="margin-left: 10px;"  t-on-click="UploadZip">
+                Upload
+            </button>
+        </xpath>
+
+    </t>
+
+    <t t-name="barcode_terminal.implementation_field_mapping.ListView.Buttons" t-inherit="web.ListView.Buttons">
+                <xpath expr="//div[hasclass('o_list_buttons')]" position="after">
+            <button type="button" class="btn btn-primary wizard_action" style="margin-left: 10px;"  t-on-click="OpenTemplateWizard">
+                Open Wizard
+            </button>
+        </xpath>
+
+    </t>
+
+</templates>
