@@ -246,6 +246,16 @@
             <field name="context">{'module' : 'barcode_terminal'}</field>
         </record>
 
+
+
+        <record model="ir.actions.act_url" id="action_description_url">
+            <field name="name">Description</field>
+            <field name="url">barcode_terminal/static/description/index.html</field>
+            <field name="target">new</field>
+        </record>
+
+
+
         <!--        <record id="load_js_function" model="ir.actions.client">-->
         <!--            <field name="name">Load JS Function</field>-->
         <!--            <field name="tag">js_function</field>-->
@@ -262,6 +272,8 @@
                   sequence="20" parent="barcode_terminal.menu_root"/>
         <menuitem name="Configuration" id="barcode_terminal.configuration"
                   sequence="30" parent="barcode_terminal.menu_root"/>
+        <menuitem name="(?) Help" id="barcode_terminal.help"
+                  sequence="40" parent="barcode_terminal.menu_root"/>
 
 
         <!-- actions -->
@@ -274,6 +286,8 @@
                   action="barcode_terminal.action_window_implementation_tunings"/>
         <menuitem name="Settings" id="barcode_terminal.settings" parent="barcode_terminal.configuration"
                   action="barcode_terminal.res_config_settings_menu_action"/>
+        <menuitem name="Description" id="barcode_terminal.description" parent="barcode_terminal.help"
+                  action="barcode_terminal.action_description_url"/>
 
 
 
