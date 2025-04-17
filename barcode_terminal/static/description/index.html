@@ -6,6 +6,17 @@
     <meta name="author" content="V.Svetlitsky">
   </head>
   <body>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
     <h1 style=" text-align: center;"><span style="color: #993399;"><span style="font-family: Helvetica,Arial,sans-serif;"><u>Barcode
             Terminal</u></span></span></h1>
     <h2 style="text-align: center;"><span style="color: #993399;">Overview</span></h2>
@@ -24,8 +35,7 @@
       <li>1) Collect data with mobile <em>BCC</em> application</li>
       <li>2) Export obtained collection (task) by means of standard android
         sharing action to any channel suitable to transport data file to Odoo
-        workstation. The most convenient options is e-mail or cloud data
-        storrage</li>
+        workstation. The most convenient options is e-mail or cloud data storage</li>
       <li> BCC is supplied with it's own comprehensive description - so lets
         won't stuck much on this subject</li>
       <li>3) In Odoo open this application "<em>Barcode terminal</em>" and press
@@ -42,15 +52,15 @@
       </tbody>
     </table>
     <ul>
-      <li>As a result we obtain "<em>Barcode Colloction</em>" document, which is
+      <li>As a result we obtain "<em>Barcode Collection</em>" document, which is
         a convenient intermediate data structure for automated creation of
         various primary business document, by filling multiple product lines
         based on obtained barcode data. Here we can see collection attributes: <em>Name</em>
         and unique <em>Version ID</em>. This attributes are mandatory,&nbsp;
         but serves purely for identification. <em>Name</em> could be edited
-        arbitrary. <em>Comment</em> is optional.Further there is multyline
+        arbitrary. <em>Comment</em> is optional.Further there is multiline
         table, containing barcodes, and <b><em>empty</em></b> "<em>Product</em>"
-        colum.</li>
+        column.</li>
     </ul>
     <ul>
       <li><br>
@@ -75,10 +85,10 @@
               <li> <br>
               </li>
               <li>a) products may exist in database - but barcode is not
-                assigned. If user has feeling that such case is happend - he can
-                try to find correct product by hands, based on imported name and
-                image attributes. Clicking on any line opens line editing form ,
-                where barcode could be snapped to existing product </li>
+                assigned. If user has feeling that such case is happened - he
+                can try to find correct product by hands, based on imported name
+                and image attributes. Clicking on any line opens line editing
+                form , where barcode could be snapped to existing product </li>
             </ul>
             <div style="text-align: right;"><br>
             </div>
@@ -157,7 +167,7 @@
     </dl>
     <p> Of course it's not complete - user have to add missing data manually,
       but this is much simpler, as the compilation of needed product lines often
-      is most tidious and scrupulous part of work</p>
+      is most tedious and scrupulous part of work</p>
     <table style="width: 100%;" border="0" cellpadding="20">
       <tbody>
         <tr>
@@ -204,7 +214,7 @@
         incoming mail. </li>
       <li>3) Then you set this local part of address in configuration record
         form (<em>Barcode Terminal -&gt; menu "Configuration" -&gt; "Barcode
-          collection EMail alias"</em>.) to obtain actual alias address.</li>
+          collection E-Mail alias"</em>.) to obtain actual alias address.</li>
     </ul>
     <table style="width: 100%;" border="0">
       <tbody>
@@ -227,11 +237,11 @@
     to use one of free email services like <em>gmail</em> or <em>outlook</em>.
     So you
     <ul>
-      <li>1) get new gmail mailbox (i.e. bct_alias@gmail.com). </li>
+      <li>1) get new gmail mailbox (e.g. bct_alias@gmail.com). </li>
       <li>2) Then you have to setup this mailbox as new incoming mail server in
         Odoo settings and make sure that it is working and has status&nbsp; <strong>confirmed</strong>.
-        (Fig 7 p.1)</li>
-      <li>3) Then set "@gmail.com" as "<em>Alias Domain</em>" (Fig 7 p.2)</li>
+        (Fig 7 point 1)</li>
+      <li>3) Then set "@gmail.com" as "<em>Alias Domain</em>" (Fig 7 point 2)</li>
       <li>4) Finally edit Barcode Terminal alias record as in previous case
         (Fig. 8, 9)&nbsp; to obtain alias with "<em>bct_alias@gmail.com</em>"
         address.</li>
@@ -272,7 +282,7 @@
       impact overall performance. So it should be special dedicated mailbox: new
       one or that purged before.&nbsp; <br>
     </p>
-    <h1 style=" text-align: center;"><span style="color: #993399;">Extensibility
+    <h1 style=" text-align: center;"><span style="color: #993399;">Extencibility
         and limitations</span></h1>
     <p>This last section has more technical character and is addressed rather to
       developers that would have an interest to customize program closer to end
@@ -285,7 +295,7 @@
       new can be created as well. Business documents often the combination of
       two or more data models connected with some kind of relations, so - there
       provided wizard for selection of possible combinations of parent document
-      headers and multyline part records, containing products. Result of such
+      headers and multiline part records, containing products. Result of such
       wizard is just a billet - you can add or remove field correspondences
       according to common sense. Further we utilize standard Odoo ability to
       open prefilled forms for new records using context. So far it sounds like
@@ -299,7 +309,7 @@
         .</strong> Main rule was - never change existing mechanisms - just add
       new possibilities. It means that there are no possible side effects of
       installing application as is.&nbsp; But this is of course should not
-      necessary be so strict taboo for local customizers working closer to
+      necessary be so strict taboo for local customisers, working closer to
       users, observing local business logic. As an example of&nbsp; <span searchabletext="
                                     Check to allow using templates with mute mode, skipping WYSIWYG-type document forms                                ">
         <span searchabletext="
@@ -307,8 +317,8 @@
       technics failure is generation of Pricelist documents from Barcode
       Collections: In Odoo 16 and 18 it is not working. But there still one
       workaround exists. We call it "Forced generation". That is when new
-      documents creation commited in database right away rather than present new
-      form that you can save or cancel.&nbsp; May be this is not a kind of
+      documents creation committed in database right away rather than present
+      new form that you can save or cancel.&nbsp; May be this is not a kind of
       design someone could call elegant. But we preserve it as an option. It is
       disabled by default but can be enabled for some templates in
       configuration. </p>
@@ -331,7 +341,7 @@
     <p>Who knows , may be this is the kind of automation someone needs most of
       all. Ability to create pricelists from barcodes may appear useful in
       situations when manager have to set prices of products outdoor based on
-      real-time product condition (i.e. vegetables or fruits)&nbsp; </p>
+      real-time product condition (e.g. vegetables or fruits)&nbsp; </p>
     <p><br>
     </p>
     <p><br>
