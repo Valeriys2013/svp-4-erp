@@ -6,6 +6,17 @@
     <meta name="author" content="V.Svetlitsky">
   </head>
   <body>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
     <h1 style=" text-align: center;"><span style="color: #993399;"><span style="font-family: Helvetica,Arial,sans-serif;"><u>Barcode
             Terminal</u></span></span></h1>
     <h2 style="text-align: center;"><span style="color: #993399;">Overview</span></h2>
@@ -24,8 +35,7 @@
       <li>1) Collect data with mobile <em>BCC</em> application</li>
       <li>2) Export obtained collection (task) by means of standard android
         sharing action to any channel suitable to transport data file to Odoo
-        workstation. The most convenient options is e-mail or cloud data
-        storrage</li>
+        workstation. The most convenient options is e-mail or cloud data storage</li>
       <li> BCC is supplied with it's own comprehensive description - so lets
         won't stuck much on this subject</li>
       <li>3) In Odoo open this application "<em>Barcode terminal</em>" and press
@@ -42,15 +52,15 @@
       </tbody>
     </table>
     <ul>
-      <li>As a result we obtain "<em>Barcode Colloction</em>" document, which is
+      <li>As a result we obtain "<em>Barcode Collection</em>" document, which is
         a convenient intermediate data structure for automated creation of
         various primary business document, by filling multiple product lines
         based on obtained barcode data. Here we can see collection attributes: <em>Name</em>
         and unique <em>Version ID</em>. This attributes are mandatory,&nbsp;
         but serves purely for identification. <em>Name</em> could be edited
-        arbitrary. <em>Comment</em> is optional.Further there is multyline
+        arbitrary. <em>Comment</em> is optional.Further there is multiline
         table, containing barcodes, and <b><em>empty</em></b> "<em>Product</em>"
-        colum.</li>
+        column.</li>
     </ul>
     <ul>
       <li><br>
@@ -75,7 +85,7 @@
               <li> <br>
               </li>
               <li>a) products may exist in database - but barcode is not
-                assigned. If user has feeling that such case is happend - he can
+                assigned. If user has feeling that such case is happened - he can
                 try to find correct product by hands, based on imported name and
                 image attributes. Clicking on any line opens line editing form ,
                 where barcode could be snapped to existing product </li>
@@ -157,7 +167,7 @@
     </dl>
     <p> Of course it's not complete - user have to add missing data manually,
       but this is much simpler, as the compilation of needed product lines often
-      is most tidious and scrupulous part of work</p>
+      is most tedious and scrupulous part of work</p>
     <table style="width: 100%;" border="0" cellpadding="20">
       <tbody>
         <tr>
@@ -204,7 +214,7 @@
         incoming mail. </li>
       <li>3) Then you set this local part of address in configuration record
         form (<em>Barcode Terminal -&gt; menu "Configuration" -&gt; "Barcode
-          collection EMail alias"</em>.) to obtain actual alias address.</li>
+          collection E-Mail alias"</em>.) to obtain actual alias address.</li>
     </ul>
     <table style="width: 100%;" border="0">
       <tbody>
