@@ -317,6 +317,32 @@ class BarcodeCollection(models.Model):
                 # print("price_unit = ", line.price_unit)
                 line.product.standard_price = line.price_unit
 
+    def update_product_images(self):
+        # print("update_product_images in ", self.name)
+        for collection in self:
+            for line in collection.line_ids:
+                if not line.product:
+                    continue
+                if not line.image_1920:
+                    continue
+                # print("price_unit = ", line.price_unit)
+                line.product.image_1920 = line.image_1920
+                # line.product.image_1024 = line.image_1024
+
+    def assign_product_images(self):
+        # print("update_product_images in ", self.name)
+        for collection in self:
+            for line in collection.line_ids:
+                if not line.product:
+                    continue
+                if not line.image_1920:
+                    continue
+                if line.product.image_1920:
+                    continue #assign images where they are absent only
+                # print("price_unit = ", line.price_unit)
+                line.product.image_1920 = line.image_1920
+                # line.product.image_1024 = line.image_1024
+
     @api.model
     def message_new(self, msg_dict, custom_values=None):
         # print('custom_values1 :', custom_values)
