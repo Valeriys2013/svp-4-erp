@@ -182,6 +182,22 @@
                             data-hotkey="w"
                             invisible = "state not in 'part_recognized,all_recognized,implemented'">
                     </button>
+                    <button class="oe_stat_button"  help="Update Product Images"
+                            type="object"
+                            icon="fa-file-picture-o"
+                            name="update_product_images"
+                            confirm="This will overwrite images of found products with new ones from current collections (if new exists). Is this what you want?"
+                            data-hotkey="u"
+                            invisible = "state not in 'part_recognized,all_recognized,implemented'">
+                    </button>
+                    <button class="oe_stat_button"  help="Assign Product Images"
+                            type="object"
+                            icon="fa-image"
+                            name="assign_product_images"
+                            confirm="This will add images to found products, where new image exists and product is currently without the image."
+                            data-hotkey="a"
+                            invisible = "state not in 'part_recognized,all_recognized,implemented'">
+                    </button>
                     <!--                    </div>-->
                 </xpath>
 
