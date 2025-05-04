@@ -292,7 +292,7 @@
 
         <record model="ir.actions.act_url" id="action_description_url">
             <field name="name">Description</field>
-            <field name="url">barcode_terminal/static/description/index.html</field>
+            <field name="url">barcode_terminal/static/description/help.html</field>
             <field name="target">new</field>
         </record>
 

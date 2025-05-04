@@ -14,6 +14,7 @@
 
 from odoo import fields, models, api
 
+
 class Implementation(models.Model):
     _name = 'barcode_terminal.implementation'
     _description = 'Implementation into real document'
