@@ -1,0 +1,6 @@
+
+*.pyc
+
+barcode_terminal/.idea/
+
+barcode_terminal/wizard/__pycache__/

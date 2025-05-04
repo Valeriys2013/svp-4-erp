@@ -1,376 +1,374 @@
 <!DOCTYPE html>
 <html dir="ltr">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Barcode Terminal</title>
-    <meta name="author" content="V.Svetlitsky">
   </head>
   <body>
-    <div id="google_translate_element"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {pageLanguage: 'en'},
-                'google_translate_element'
-            );
-        }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-    </script>
-    <h1 style=" text-align: center;"><span style="color: #993399;"><span style="font-family: Helvetica,Arial,sans-serif;"><u>Barcode
-            Terminal</u></span></span></h1>
-    <h2 style="text-align: center;"><span style="color: #993399;">Overview</span></h2>
-    <dl>
-      <dt>Barcode Terminal is application for import and usage of data obtained
-        from mobile barcode scanning app "<a href="https://play.google.com/store/apps/details?id=com.svitlytskyi.barcodecollector.pro.release&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">SVP
-          Barcode Collector</a>". While it initially designed to&nbsp; use data
-        of just mentioned "<em>Barcode Collector</em>" (further - <em>BCC</em>)&nbsp;
-        - nevertheless, technically - it can be used for import of barcode
-        collection data from any source, provided that it obey required
-        format.&nbsp; Format is pretty simple - old plain CSV or XLS files,
-        containing mandatory 'barcode' column and several supplementary columns,
-        part of which is optional.</dt>
-    </dl>
-    <dl>
-      <dd><em style="color: #336666;">"Barcode Collector" ("BCC") is Android
-          barcode scanner designed to serve as Data Terminal in wide range of
-          works where hardware laser scanner facilities usually engaged. It
-          maintains it's own mobile database to store collections of scanned
-          data: barcode, quantity and optional name and images attached.
-          Collections ('tasks') may subsequently&nbsp; be shared to arbitrary
-          destination in the form of XLS,CSV,JSON or XML files.</em></dd>
-    </dl>
-    <p>&nbsp;With Barcode Terminal in a couple of minutes we can prepare
-      voluminous purchase order, or sale order - about hundred items in size, or
-      just update images of products using mobile camera</p>
-    <h2 style="text-align: center;"><span style="color: #993399;">&nbsp;Quick
-        start</span></h2>
-    <ul>
-      <li>1) Collect data with mobile <em>BCC</em> application</li>
-      <li>2) Export obtained collection (task) by means of standard android
-        sharing action to any channel suitable to transport data file to Odoo
-        workstation. The most convenient options is e-mail or cloud data storage</li>
-      <li> BCC is supplied with it's own comprehensive description - so lets
-        won't stuck much on this subject</li>
-      <li>3) In Odoo open this application "<em>Barcode terminal</em>" and press
-        "<em>Upload</em>" button to open wizard for data import.</li>
-    </ul>
-    <p> </p>
-    <br>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td style="text-align: right;">Fig. 1</td>
-          <td><img src="Fig1.png" alt="Upload button" title="Upload"></td>
-        </tr>
-      </tbody>
-    </table>
-    <ul>
-      <li>As a result we obtain "<em>Barcode Collection</em>" document, which is
-        a convenient intermediate data structure for automated creation of
-        various primary business document, by filling multiple product lines
-        based on obtained barcode data. Here we can see collection attributes: <em>Name</em>
-        and unique <em>Version ID</em>. This attributes are mandatory,&nbsp;
-        but serves purely for identification. <em>Name</em> could be edited
-        arbitrary. <em>Comment</em> is optional.Further there is multiline
-        table, containing barcodes, and <b><em>empty</em></b> "<em>Product</em>"
-        column.</li>
-    </ul>
-    <ul>
-      <li><br>
-      </li>
-    </ul>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td>
-            <div style="text-align: right;">Fig. 2</div>
-            <div style="text-align: right;"><br>
-            </div>
-            <div style="text-align: justify;">
-              <ul>
-                <li>4) Next step is to try find products in database based on
-                  barcodes using correspondent button. Some products may be
-                  found, but other could stay unknown. There are two options
-                  behind that: </li>
-              </ul>
-            </div>
-            <ul>
-              <li> <br>
-              </li>
-              <li>a) products may exist in database - but barcode is not
-                assigned. If user has feeling that such case is happened - he
-                can try to find correct product by hands, based on imported name
-                and image attributes. Clicking on any line opens line editing
-                form , where barcode could be snapped to existing product </li>
-            </ul>
-            <div style="text-align: right;"><br>
-            </div>
-          </td>
-          <td style="text-align: left;"><img src="Fig2.png" title="Barcode Collection document"></td>
-        </tr>
-      </tbody>
-    </table>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td>
-            <div style="text-align: right;">Fig. 3</div>
-            <br>
-            <div style="text-align: justify;">
-              <ul>
-                <li> b) there could be lines for totally new products. For that
-                  positions we can generate new products using <strong>"</strong><em>Create
-                    new products</em><strong>" </strong>button. This procedure
-                  uses imported name and image (if exists).</li>
-              </ul>
-            </div>
-          </td>
-          <td><img src="Fig3.png" title="button Create_New "></td>
-        </tr>
-      </tbody>
-    </table>
-    <p><br>
-    </p>
-    <ul>
+    <section class="oe_container">
+      <h2 style="text-align: center;"><span style="color: #993399;">Overview</span></h2>
+      <dl>
+        <dt>Barcode Terminal is application for import and usage of data
+          obtained from mobile barcode scanning app "<a href="https://play.google.com/store/apps/details?id=com.svitlytskyi.barcodecollector.pro.release&amp;pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">SVP
+            Barcode Collector</a>". While it initially designed to&nbsp; use
+          data of just mentioned "<em>Barcode Collector</em>" (further - <em>BCC</em>)&nbsp;
+          - nevertheless, technically - it can be used for import of barcode
+          collection data from any source, provided that it obey required
+          format.&nbsp; Format is pretty simple - old plain CSV or XLS files,
+          containing mandatory 'barcode' column and several supplementary
+          columns, part of which is optional.</dt>
+      </dl>
+      <dl>
+        <dd><em style="color: #336666;">"Barcode Collector" ("BCC") is Android
+            barcode scanner designed to serve as Data Terminal in wide range of
+            works where hardware laser scanner facilities usually engaged. It
+            maintains it's own mobile database to store collections of scanned
+            data: barcode, quantity and optional name and images attached.
+            Collections ('tasks') may subsequently&nbsp; be shared to arbitrary
+            destination in the form of XLS,CSV,JSON or XML files.</em></dd>
+      </dl>
+      <p>&nbsp;With Barcode Terminal in a couple of minutes we can prepare
+        voluminous purchase order, or sale order - about hundred items in size,
+        or just update images of products using mobile camera</p>
+    </section>
+    <section class="oe_container">
+      <h2 style="text-align: center;"><span style="color: #993399;">&nbsp;Quick
+          start</span></h2>
       <ul>
+        <li>1) Collect data with mobile <em>BCC</em> application</li>
+        <li>2) Export obtained collection (task) by means of standard android
+          sharing action to any channel suitable to transport data file to
+          Odoo workstation. The most convenient options is e-mail or
+          cloud data storage</li>
+        <li> BCC is supplied with it's own comprehensive description - so lets
+          won't stuck much on this subject</li>
+        <li>3) In Odoo open this application "<em>Barcode terminal</em>" and
+          press "<em>Upload</em>" button to open wizard for data import.</li>
       </ul>
-    </ul>
-    <p></p>
-    <tb></tb>
-    <p><i><span style="color: #666666;">&nbsp;If name field is empty in imported
-          file - it filled by "dummy" names, generated from barcode itself.
-          Clearly - there is no practical sense for business in this kind of
-          names, but technically it helps to demonstrate quickly the abilities
-          of program&nbsp; and principles of work. </span></i> </p>
-    <dl>
-      <dt>This way we can quickly replenish or update product catalogue of our
-        Odoo database. But the main purpose of this application is the ability
-        to generate different primary documents with&nbsp; recognized products.
-        This function called here "<em>Implementation</em>". We can run it now
-        by means of button "<em>Implement</em>".&nbsp; </dt>
-    </dl>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td style="text-align: right;">Fig. 4</td>
-          <td><img src="Fig4.png" title="Implement"></td>
-        </tr>
-      </tbody>
-    </table>
-    <dl>
-    </dl>
-    <dl>
-    </dl>
-    <p> It opens simple wizard dialog, where we can choose what exactly kind of
-      document we would like to generate. Then we press button "<em>Generate</em>"
-      and obtain prefilled form of new document. </p>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td style="text-align: right;">Fig. 5</td>
-          <td><img src="Fig5.png" title="Implementation wizard"></td>
-        </tr>
-      </tbody>
-    </table>
-    <p><br>
-    </p>
-    <dl>
-    </dl>
-    <dl>
-    </dl>
-    <p> Of course it's not complete - user have to add missing data manually,
-      but this is much simpler, as the compilation of needed product lines often
-      is most tedious and scrupulous part of work</p>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td style="text-align: right;">Fig. 6</td>
-          <td><img src="Fig6.png" title="Primary doc"></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>That's it. At this moment we can save new document or discard - so no new
-      record will be created. </p>
-    <h1 style="text-align: center;"><span style="color: #993399;">Mail aliases</span></h1>
-    <p>Mail aliases&nbsp; is standard Odoo&nbsp; automation feature that&nbsp;
-      allows&nbsp; to create document from incoming e-mail. So each alias
-      record&nbsp; sets up connection between message attributes&nbsp; and
-      generation of certain document types. Barcode Terminal as well can
-      leverage this facility to make work more convenient. As a result this will
-      allow you to bypass the stage of manual file downloading (step - 3 from
-      start guide ). On Android device you or your business client just export
-      the job to email and after some time in Odoo side (new email is usually
-      checked every 5 min.) you have new "<em>Barcode Collection</em>"
-      documents.</p>
-    <p>Odoo messaging system is pretty flexible and has many variants of tuning.
-      If you never use this aliases before - please refer to Odoo official
-      documents for help to better understanding. Here I'd like just highlight
-      the main key points from the users point of view - what is needed to make
-      mail alias working.</p>
-    <table style="width: 100%;" border="0" cellpadding="20">
-      <tbody>
-        <tr>
-          <td style="text-align: right;">Fig. 7</td>
-          <td><img src="Fig7.png" title="Alias domain"></td>
-        </tr>
-      </tbody>
-    </table>
-    <ul>
-      <li> 1) First of all there must be "<em>Alias Domain</em>" set in Odoo
-        settings for yous company (let's say it will be:
-        @your_company_aliases.com).</li>
-      <li>2) Then you have to agree with sysadmin for you to use one of address
-        of this domain as alias for "Barcode Collection" documents. Let it be
-        for example: "<em>barcode_terminal@your_company_aliases.com</em>". You
-        can choose arbitrary local part instead of "<em>barcode_terminal</em>".
-        From admin you need only this mailbox to be working and able to receive
-        incoming mail. </li>
-      <li>3) Then you set this local part of address in configuration record
-        form (<em>Barcode Terminal -&gt; menu "Configuration" -&gt; "Barcode
-          collection E-Mail alias"</em>.) to obtain actual alias address.</li>
-    </ul>
-    <table style="width: 100%;" border="0">
-      <tbody>
-        <tr>
-          <td style="text-align: center;"><img src="Fig8.png" title="Barcode termilal alias"></td>
-          <td style="text-align: center;"><img src="Fig9.png" title="Edit alias record"><br>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: center;">Fig. 8</td>
-          <td style="text-align: center;">Fig. 9</td>
-        </tr>
-      </tbody>
-    </table>
-    <p> Once it set - it is ready to work. Technically we can configure several
-      alias , but in fact you need just one.&nbsp; </p>
-    We could as well consider another possible scenario. Supposing - you run a
-    small company, you are on your own with Odoo base - director and sysadmin in
-    one person. In this case probably the simplest way to make aliases working -
-    to use one of free email services like <em>gmail</em> or <em>outlook</em>.
-    So you
-    <ul>
-      <li>1) get new gmail mailbox (e.g. bct_alias@gmail.com). </li>
-      <li>2) Then you have to setup this mailbox as new incoming mail server in
-        Odoo settings and make sure that it is working and has status&nbsp; <strong>confirmed</strong>.
-        (Fig 7 point 1)</li>
-      <li>3) Then set "@gmail.com" as "<em>Alias Domain</em>" (Fig 7 point 2)</li>
-      <li>4) Finally edit Barcode Terminal alias record as in previous case
-        (Fig. 8, 9)&nbsp; to obtain alias with "<em>bct_alias@gmail.com</em>"
-        address.</li>
-    </ul>
-    <p>The only tricky part in this is may be - step #2. This famous global
-      services are very easy to use with web UI or dedicated desktop clients,
-      but when it comes about using with third-party applications - the task
-      became more complicated via the need of setting up OAuth protocol.
-      Luckily, Odoo documentation has comprehensive guides for this:</p>
-    <ul>
-      <li><a href="https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#"
-          title="https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#"
-          target="_blank">https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#</a>&nbsp;&nbsp;
-        and</li>
-      <li><a href="https://www.odoo.com/documentation/18.0/applications/general/email_communication/azure_oauth.html"
-          target="_blank">https://www.odoo.com/documentation/18.0/applications/general/email_communication/azure_oauth.html</a></li>
-    </ul>
-    <p>It may seems confusing at first but if you fulfill all carefully, you
-      should succeed. You may also choose to try other way: all around the world
-      there are usually a lot of not so well&nbsp; known services not willing to
-      maintain security in so high level. They often do things simpler - without
-      OAuth - especially for free plans. With this all the setup process is to
-      input username and password. One more detail worth mentioning , when
-      testing aliases - is how they tell already processed messages. For "<strong>imap</strong>"
-      protocol it being marked as read and next time ignored when checked. So if
-      you are waiting for new document appear in Odoo and decide to see if the
-      source message is in right place using client UI - it will be marked as
-      read - and you should&nbsp; mark it unread for all this worked out
-      properly.</p>
-    <p>There is preset default alias record - feel free to edit it according to
-      just described logic, or create new one, experimenting and choose what is
-      better for you. We just don't recommend to use for this your private
-      general-purpose mailbox, especially with <em>POP</em> access. While it
-      should work for test due to filtering, if you proceed using it in
-      production stage, it may turn out that Odoo will every 5 minutes doing
-      stupid work on filtering all the same tonnes of irrelevant messages trying
-      to find alias data. It is of course huge wasting of resources and could
-      impact overall performance. So it should be special dedicated mailbox: new
-      one or that purged before.&nbsp; <br>
-    </p>
-    <h1 style=" text-align: center;"><span style="color: #993399;">Extencibility
-        and limitations</span></h1>
-    <p>This last section has more technical character and is addressed rather to
-      developers that would have an interest to customize program closer to end
-      user real situation.</p>
-    <p>To provide "implementation" function&nbsp; - this program uses so called
-      "implementation templates". It is auxiliary records , that set mapping
-      correspondence between fields&nbsp; of "<em>Barcode Collection</em>"
-      record fields and resulting fields of target primary documents. One can
-      study it using configuration menu. There are several preset templates but
-      new can be created as well. Business documents often the combination of
-      two or more data models connected with some kind of relations, so - there
-      provided wizard for selection of possible combinations of parent document
-      headers and multiline part records, containing products. Result of such
-      wizard is just a billet - you can add or remove field correspondences
-      according to common sense. Further we utilize standard Odoo ability to
-      open prefilled forms for new records using context. So far it sounds like
-      pretty simple technics.&nbsp; And it works, but not always. Many of Odoo
-      documents have it's own builtin automation calculations that may interfere
-      or simply obliterate the results of context prefilling. In such cases we
-      agree this app is not applicable. It is because this application&nbsp; is
-      common purpose or "universal" by design. One other possible way to
-      overcome described problems - would be - to try to extend or change
-      existing documents. Here this approach is definitely <strong>NOT ACCEPTED
-        .</strong> Main rule was - never change existing mechanisms - just add
-      new possibilities. It means that there are no possible side effects of
-      installing application as is.&nbsp; But this is of course should not
-      necessary be so strict taboo for local customisers, working closer to
-      users, observing local business logic. As an example of&nbsp; <span searchabletext="
+      <p> </p>
+      <br>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td style="text-align: right;">Fig. 1</td>
+            <td><img src="Fig1.png" alt="Upload button" title="Upload"></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li>As a result we obtain "<em>Barcode Collection</em>" document, which
+          is a convenient intermediate data structure for automated creation of
+          various primary business document, by filling multiple product lines
+          based on obtained barcode data. Here we can see collection attributes:
+          <em>Name</em> and unique <em>Version ID</em>. This attributes are
+          mandatory,&nbsp; but serves purely for identification. <em>Name</em>
+          could be edited arbitrary. <em>Comment</em> is optional.Further there
+          is multiline table, containing barcodes, and <b><em>empty</em></b> "<em>Product</em>"
+          column.</li>
+      </ul>
+      <ul>
+        <li><br>
+        </li>
+      </ul>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td>
+              <div style="text-align: right;">Fig. 2</div>
+              <div style="text-align: right;"><br>
+              </div>
+              <div style="text-align: justify;">
+                <ul>
+                  <li>4) Next step is to try find products in database based on
+                    barcodes using correspondent button. Some products may be
+                    found, but other could stay unknown. There are two options
+                    behind that: </li>
+                </ul>
+              </div>
+              <ul>
+                <li> <br>
+                </li>
+                <li>a) products may exist in database - but barcode is not
+                  assigned. If user has feeling that such case is happened - he
+                  can try to find correct product by hands, based on imported
+                  name and image attributes. Clicking on any line opens line
+                  editing form , where barcode could be snapped to existing
+                  product </li>
+              </ul>
+              <div style="text-align: right;"><br>
+              </div>
+            </td>
+            <td style="text-align: left;"><img src="Fig2.png" title="Barcode Collection document"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td>
+              <div style="text-align: right;">Fig. 3</div>
+              <br>
+              <div style="text-align: justify;">
+                <ul>
+                  <li> b) there could be lines for totally new products. For
+                    that positions we can generate new products using <strong>"</strong><em>Create
+                      new products</em><strong>" </strong>button. This
+                    procedure uses imported name and image (if exists).</li>
+                </ul>
+              </div>
+            </td>
+            <td><img src="Fig3.png" title="button Create_New "></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br>
+      </p>
+      <ul>
+        <ul>
+        </ul>
+      </ul>
+      <p></p>
+      <tb></tb>
+      <p><i><span style="color: #666666;">&nbsp;If name field is empty in
+            imported file - it filled by "dummy" names, generated from barcode
+            itself. Clearly - there is no practical sense for business in this
+            kind of names, but technically it helps to demonstrate quickly the
+            abilities of program&nbsp; and principles of work. </span></i> </p>
+      <dl>
+        <dt>This way we can quickly replenish or update product catalogue of our
+          Odoo database. But the main purpose of this application is the ability
+          to generate different primary documents with&nbsp; recognized
+          products. This function called here "<em>Implementation</em>". We can
+          run it now by means of button "<em>Implement</em>".&nbsp; </dt>
+      </dl>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td style="text-align: right;">Fig. 4</td>
+            <td><img src="Fig4.png" title="Implement"></td>
+          </tr>
+        </tbody>
+      </table>
+      <dl>
+      </dl>
+      <dl>
+      </dl>
+      <p> It opens simple wizard dialog, where we can choose what exactly kind
+        of document we would like to generate. Then we press button "<em>Generate</em>"
+        and obtain prefilled form of new document. </p>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td style="text-align: right;">Fig. 5</td>
+            <td><img src="Fig5.png" title="Implementation wizard"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br>
+      </p>
+      <dl>
+      </dl>
+      <dl>
+      </dl>
+      <p> Of course it's not complete - user have to add missing data manually,
+        but this is much simpler, as the compilation of needed product lines
+        often is most tedious and scrupulous part of work</p>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td style="text-align: right;">Fig. 6</td>
+            <td><img src="Fig6.png" title="Primary doc"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>That's it. At this moment we can save new document or discard - so no
+        new record will be created. </p>
+    </section>
+    <section class="oe_container">
+      <h2 style=" text-align: center;"><span style="color: #993399;">Mail
+          aliases</span></h2>
+      <p>Mail aliases&nbsp; is standard Odoo&nbsp; automation feature that&nbsp;
+        allows&nbsp; to create document from incoming e-mail. So each alias
+        record&nbsp; sets up connection between message attributes&nbsp; and
+        generation of certain document types. Barcode Terminal as well can
+        leverage this facility to make work more convenient. As a result this
+        will allow you to bypass the stage of manual file downloading (step - 3
+        from start guide ). On Android device you or your business client just
+        export the job to email and after some time in Odoo side (new email is
+        usually checked every 5 min.) you have new "<em>Barcode Collection</em>"
+        documents.</p>
+      <p>Odoo messaging system is pretty flexible and has many variants of
+        tuning. If you never use this aliases before - please refer to Odoo
+        official documents for help to better understanding. Here I'd like just
+        highlight the main key points from the users point of view - what is
+        needed to make mail alias working.</p>
+      <table style="width: 100%;" border="0" cellpadding="20">
+        <tbody>
+          <tr>
+            <td style="text-align: right;">Fig. 7</td>
+            <td><img src="Fig7.png" title="Alias domain"></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li> 1) First of all there must be "<em>Alias Domain</em>" set in Odoo
+          settings for yous company (let's say it will be:
+          @your_company_aliases.com).</li>
+        <li>2) Then you have to agree with sysadmin for you to use one of
+          address of this domain as alias for "Barcode Collection" documents.
+          Let it be for example: "<em>barcode_terminal@your_company_aliases.com</em>".
+          You can choose arbitrary local part instead of "<em>barcode_terminal</em>".
+          From admin you need only this mailbox to be working and able to
+          receive incoming mail. </li>
+        <li>3) Then you set this local part of address in configuration record
+          form (<em>Barcode Terminal -&gt; menu "Configuration" -&gt; "Barcode
+            collection E-Mail alias"</em>.) to obtain actual alias address.</li>
+      </ul>
+      <table style="width: 100%;" border="0">
+        <tbody>
+          <tr>
+            <td style="text-align: center;"><img src="Fig8.png" title="Barcode termilal alias"></td>
+            <td style="text-align: center;"><img src="Fig9.png" title="Edit alias record"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">Fig. 8</td>
+            <td style="text-align: center;">Fig. 9</td>
+          </tr>
+        </tbody>
+      </table>
+      <p> Once it set - it is ready to work. Technically we can configure
+        several alias , but in fact you need just one.&nbsp; </p>
+      We could as well consider another possible scenario. Supposing - you run a
+      small company, you are on your own with Odoo base - director and sysadmin
+      in one person. In this case probably the simplest way to make aliases
+      working - to use one of free email services like <em>gmail</em> or <em>outlook</em>.
+      So you
+      <ul>
+        <li>1) get new gmail mailbox (e.g. bct_alias@gmail.com). </li>
+        <li>2) Then you have to setup this mailbox as new incoming mail server
+          in Odoo settings and make sure that it is working and has status&nbsp;
+          <strong>confirmed</strong>. (Fig 7 point 1)</li>
+        <li>3) Then set "@gmail.com" as "<em>Alias Domain</em>" (Fig 7 point 2)</li>
+        <li>4) Finally edit Barcode Terminal alias record as in previous case
+          (Fig. 8, 9)&nbsp; to obtain alias with "<em>bct_alias@gmail.com</em>"
+          address.</li>
+      </ul>
+      <p>The only tricky part in this is may be - step #2. This famous global
+        services are very easy to use with web UI or dedicated desktop clients,
+        but when it comes about using with third-party applications - the task
+        became more complicated via the need of setting up OAuth protocol.
+        Luckily, Odoo documentation has comprehensive guides for this:</p>
+      <ul>
+        <li><a href="https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#"
+            title="https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#"
+            target="_blank">https://www.odoo.com/documentation/18.0/applications/general/email_communication/google_oauth.html#</a>&nbsp;&nbsp;
+          and</li>
+        <li><a href="https://www.odoo.com/documentation/18.0/applications/general/email_communication/azure_oauth.html"
+            target="_blank">https://www.odoo.com/documentation/18.0/applications/general/email_communication/azure_oauth.html</a></li>
+      </ul>
+      <p>It may seems confusing at first but if you fulfill all carefully, you
+        should succeed. You may also choose to try other way: all around the
+        world there are usually a lot of not so well&nbsp; known services not
+        willing to maintain security in so high level. They often do things
+        simpler - without OAuth - especially for free plans. With this all the
+        setup process is to input username and password. One more detail worth
+        mentioning , when testing aliases - is how they tell already processed
+        messages. For "<strong>imap</strong>" protocol it being marked as read
+        and next time ignored when checked. So if you are waiting for new
+        document appear in Odoo and decide to see if the source message is in
+        right place using client UI - it will be marked as read - and you
+        should&nbsp; mark it unread for all this worked out properly.</p>
+      <p>There is preset default alias record - feel free to edit it according
+        to just described logic, or create new one, experimenting and choose
+        what is better for you. We just don't recommend to use for this your
+        private general-purpose mailbox, especially with <em>POP</em> access.
+        While it should work for test due to filtering, if you proceed using it
+        in production stage, it may turn out that Odoo will every 5 minutes
+        doing stupid work on filtering all the same tonnes of irrelevant
+        messages trying to find alias data. It is of course huge wasting of
+        resources and could impact overall performance. So it should be special
+        dedicated mailbox: new one or that purged before.&nbsp; <br>
+      </p>
+    </section>
+    <section class="oe_container">
+      <h1 style=" text-align: center;"><span style="color: #993399;">Extencibility
+          and limitations</span></h1>
+      <p>This last section has more technical character and is addressed rather
+        to developers that would have an interest to customize program closer to
+        end user real situation.</p>
+      <p>To provide "implementation" function&nbsp; - this program uses so
+        called "implementation templates". It is auxiliary records , that set
+        mapping correspondence between fields&nbsp; of "<em>Barcode Collection</em>"
+        record fields and resulting fields of target primary documents. One can
+        study it using configuration menu. There are several preset templates
+        but new can be created as well. Business documents often the combination
+        of two or more data models connected with some kind of relations, so -
+        there provided wizard for selection of possible combinations of parent
+        document headers and multiline part records, containing products. Result
+        of such wizard is just a billet - you can add or remove field
+        correspondences according to common sense. Further we utilize standard
+        Odoo ability to open prefilled forms for new records using context. So
+        far it sounds like pretty simple technics.&nbsp; And it works, but not
+        always. Many of Odoo documents have it's own builtin automation
+        calculations that may interfere or simply obliterate the results of
+        context prefilling. In such cases we agree this app is not applicable.
+        It is because this application&nbsp; is common purpose or "universal" by
+        design. One other possible way to overcome described problems - would be
+        - to try to extend or change existing documents. Here this approach is
+        definitely <strong>NOT ACCEPTED .</strong> Main rule was - never change
+        existing mechanisms - just add new possibilities. It means that there
+        are no possible side effects of installing application as is.&nbsp; But
+        this is of course should not necessary be so strict taboo for local
+        customisers, working closer to users, observing local business logic. As
+        an example of&nbsp; <span searchabletext="
                                     Check to allow using templates with mute mode, skipping WYSIWYG-type document forms                                ">
-        <span searchabletext="
+          <span searchabletext="
                                     Check to allow using templates with mute mode, skipping WYSIWYG-type document forms                                ">WYSIWYG</span></span>
-      technics failure is generation of Pricelist documents from Barcode
-      Collections: In Odoo 16 and 18 it is not working. But there still one
-      workaround exists. We call it "Forced generation". That is when new
-      documents creation committed in database right away rather than present
-      new form that you can save or cancel.&nbsp; May be this is not a kind of
-      design someone could call elegant. But we preserve it as an option. It is
-      disabled by default but can be enabled for some templates in
-      configuration. </p>
-    <table style="width: 1489px; height: 158px;" border="0">
-      <tbody>
-        <tr>
-          <td style="text-align: center;"><img src="Fig10.png" title="Allow forced creation"><br>
-          </td>
-          <td style="text-align: center;"><img src="Fig11.png" title="Forced creation for pricelist"><br>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: center;">Fig. 10</td>
-          <td style="text-align: center;">Fig. 11</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><br>
-    </p>
-    <p>Who knows , may be this is the kind of automation someone needs most of
-      all. Ability to create pricelists from barcodes may appear useful in
-      situations when manager have to set prices of products outdoor based on
-      real-time product condition (e.g. vegetables or fruits)&nbsp; </p>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
-    <br>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
-    <br>
-    <p><br>
-    </p>
-    <p><br>
-    </p>
+        technics failure is generation of Pricelist documents from Barcode
+        Collections: In Odoo 16 and 18 it is not working. But there still one
+        workaround exists. We call it "Forced generation". That is when new
+        documents creation committed in database right away rather than present
+        new form that you can save or cancel.&nbsp; May be this is not a kind of
+        design someone could call elegant. But we preserve it as an option. It
+        is disabled by default but can be enabled for some templates in
+        configuration. </p>
+      <table style="width: 1489px; height: 158px;" border="0">
+        <tbody>
+          <tr>
+            <td style="text-align: center;"><img src="Fig10.png" title="Allow forced creation"><br>
+            </td>
+            <td style="text-align: center;"><img src="Fig11.png" title="Forced creation for pricelist"><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;">Fig. 10</td>
+            <td style="text-align: center;">Fig. 11</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><br>
+      </p>
+      <p>Who knows , may be this is the kind of automation someone needs most of
+        all. Ability to create pricelists from barcodes may appear useful in
+        situations when manager have to set prices of products outdoor based on
+        real-time product condition (e.g. vegetables or fruits)&nbsp; </p>
+    </section>
+    <section class="oe_container">
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+      <br>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+      <br>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+      </section>
   </body>
 </html>
