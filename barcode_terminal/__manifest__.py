@@ -30,7 +30,7 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     "category": "Inventory",
-    "version": "0.6",
+    "version": "0.7",
     # any module necessary for this one to work correctly
     # "depends": ["base", "product", "base_import", "mail", "contacts"],
     "depends": ["base", "product", "base_import", "sale", "mail", "contacts", "sale_management", "stock"],
@@ -75,6 +75,7 @@
         'static/description/Fig11.png',
         'static/description/icon.png',
         'static/description/main_screenshot.png'
+        'static/description/banner.png'
     ],
 
     "application": True,
